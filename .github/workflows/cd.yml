@@ -35,5 +35,10 @@ jobs:
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
 
+      - name: Check gcloud project
+        run: |
+          gcloud config list
+          gcloud artifacts repositories list --location=us-central1
+
       - name: Publish to GAR
         run: 'gcloud builds submit --tag us-central1-docker.pkg.dev/dotted-forest-496614-h2/notely-ar-repo/notely:latest .'
