@@ -42,3 +42,6 @@ jobs:
 
       - name: Publish to GAR
         run: 'gcloud builds submit --tag us-central1-docker.pkg.dev/dotted-forest-496614-h2/notely-ar-repo/notely:latest .'
+
+      - name: Deploy to Cloud Run
+        run: gcloud run deploy notely --image us-central1-docker.pkg.dev/dotted-forest-496614-h2/notely-ar-repo/notely:latest --region us-central1 --allow-unauthenticated --project dotted-forest-496614-h2 --max-instances=4
